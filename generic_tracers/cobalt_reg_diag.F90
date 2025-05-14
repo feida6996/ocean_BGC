@@ -1529,15 +1529,23 @@ module COBALT_reg_diag
     vardesc_temp = vardesc("jprod_fedet","Detrital Fedet production",'h','L','s','mol Fe kg-1 s-1','f')
     cobalt%id_jprod_fedet = register_diag_field(package_name, vardesc_temp%name, axes(1:3),&
          init_time, vardesc_temp%longname,vardesc_temp%units, missing_value = missing_value1)
-
+		 
     vardesc_temp = vardesc("jprod_ndet","Detrital PON production",'h','L','s','mol N kg-1 s-1','f')
     cobalt%id_jprod_ndet = register_diag_field(package_name, vardesc_temp%name, axes(1:3),&
          init_time, vardesc_temp%longname,vardesc_temp%units, missing_value = missing_value1)
 
+    vardesc_temp = vardesc("jprod_ndet_fast","Fast-sinking detrital PON production",'h','L','s','mol N kg-1 s-1','f')
+    cobalt%id_jprod_ndet_fast = register_diag_field(package_name, vardesc_temp%name, axes(1:3),&
+         init_time, vardesc_temp%longname,vardesc_temp%units, missing_value = missing_value1)
+		 
     vardesc_temp = vardesc("jprod_pdet","Detrital phosphorus production",'h','L','s','mol P kg-1 s-1','f')
     cobalt%id_jprod_pdet = register_diag_field(package_name, vardesc_temp%name, axes(1:3),&
          init_time, vardesc_temp%longname,vardesc_temp%units, missing_value = missing_value1)
 
+    vardesc_temp = vardesc("jprod_pdet_fast","Fast-sinking detrital phosphorus production",'h','L','s','mol P kg-1 s-1','f')
+    cobalt%id_jprod_pdet_fast = register_diag_field(package_name, vardesc_temp%name, axes(1:3),&
+         init_time, vardesc_temp%longname,vardesc_temp%units, missing_value = missing_value1)
+		 
     vardesc_temp = vardesc("jprod_ldon","labile dissolved organic nitrogen production",&
                             'h','L','s','mol N kg-1 s-1','f')
     cobalt%id_jprod_ldon = register_diag_field(package_name, vardesc_temp%name, axes(1:3),&
@@ -1632,16 +1640,26 @@ module COBALT_reg_diag
     cobalt%id_jremin_ndet = register_diag_field(package_name, vardesc_temp%name, axes(1:3),&
          init_time, vardesc_temp%longname,vardesc_temp%units, missing_value = missing_value1)
 
+    vardesc_temp = vardesc("jremin_ndet_fast","Fast-sinking nitrogen detritus remineralization",&
+                           'h','L','s','mol N kg-1 s-1','f')
+    cobalt%id_jremin_ndet_fast = register_diag_field(package_name, vardesc_temp%name, axes(1:3),&
+         init_time, vardesc_temp%longname,vardesc_temp%units, missing_value = missing_value1)
+		 
     vardesc_temp = vardesc("jremin_pdet","Phosphorous detritus remineralization",&
                            'h','L','s','mol P kg-1 s-1','f')
     cobalt%id_jremin_pdet = register_diag_field(package_name, vardesc_temp%name, axes(1:3),&
+         init_time, vardesc_temp%longname,vardesc_temp%units, missing_value = missing_value1)
+
+    vardesc_temp = vardesc("jremin_pdet_fast","Fast-sinking phosphorous detritus remineralization",&
+                           'h','L','s','mol P kg-1 s-1','f')
+    cobalt%id_jremin_pdet_fast = register_diag_field(package_name, vardesc_temp%name, axes(1:3),&
          init_time, vardesc_temp%longname,vardesc_temp%units, missing_value = missing_value1)
 
     vardesc_temp = vardesc("jremin_fedet","Iron detritus remineralization",&
                            'h','L','s','mol kg-1 s-1','f')
     cobalt%id_jremin_fedet = register_diag_field(package_name, vardesc_temp%name, axes(1:3),&
          init_time, vardesc_temp%longname,vardesc_temp%units, missing_value = missing_value1)
-
+		 
     !
     ! iron cycling diagnostics
     !
@@ -1938,23 +1956,31 @@ module COBALT_reg_diag
     cobalt%id_fcadet_calc = register_diag_field(package_name, vardesc_temp%name, axesTi(1:1),&
          init_time, vardesc_temp%longname,vardesc_temp%units, missing_value = missing_value1)
 
-    vardesc_temp = vardesc("ffedet","fedet sinking flux",'h','1','s','mol m-2 s-1','f')
+    vardesc_temp = vardesc("ffedet","Iron detritus sinking flux",'h','1','s','mol m-2 s-1','f')
     cobalt%id_ffedet = register_diag_field(package_name, vardesc_temp%name, axesTi(1:1),&
          init_time, vardesc_temp%longname,vardesc_temp%units, missing_value = missing_value1)
-
-    vardesc_temp = vardesc("flithdet","lithdet sinking flux",'h','1','s','g m-2 s-1','f')
+		 
+    vardesc_temp = vardesc("flithdet","Lithogenic detritus sinking flux",'h','1','s','g m-2 s-1','f')
     cobalt%id_flithdet = register_diag_field(package_name, vardesc_temp%name, axesTi(1:1),&
          init_time, vardesc_temp%longname,vardesc_temp%units, missing_value = missing_value1)
 
-    vardesc_temp = vardesc("fndet","ndet sinking flux",'h','1','s','mol m-2 s-1','f')
+    vardesc_temp = vardesc("fndet","Nitrogen detritus sinking flux",'h','1','s','mol m-2 s-1','f')
     cobalt%id_fndet = register_diag_field(package_name, vardesc_temp%name, axesTi(1:1),&
          init_time, vardesc_temp%longname,vardesc_temp%units, missing_value = missing_value1)
 
-    vardesc_temp = vardesc("fpdet","pdet sinking flux",'h','1','s','mol m-2 s-1','f')
+    vardesc_temp = vardesc("fndet_fast","Fast-sinking nitrogen detritus flux",'h','1','s','mol m-2 s-1','f')
+    cobalt%id_fndet_fast = register_diag_field(package_name, vardesc_temp%name, axesTi(1:1),&
+         init_time, vardesc_temp%longname,vardesc_temp%units, missing_value = missing_value1)
+		 
+    vardesc_temp = vardesc("fpdet","Phosphorus detritus sinking flux",'h','1','s','mol m-2 s-1','f')
     cobalt%id_fpdet = register_diag_field(package_name, vardesc_temp%name, axesTi(1:1),&
          init_time, vardesc_temp%longname,vardesc_temp%units, missing_value = missing_value1)
 
-    vardesc_temp = vardesc("fsidet","sidet sinking flux",'h','1','s','mol m-2 s-1','f')
+    vardesc_temp = vardesc("fpdet_fast","Fast-sinking phosphorus detritus flux",'h','1','s','mol m-2 s-1','f')
+    cobalt%id_fpdet_fast = register_diag_field(package_name, vardesc_temp%name, axesTi(1:1),&
+         init_time, vardesc_temp%longname,vardesc_temp%units, missing_value = missing_value1)
+		 
+    vardesc_temp = vardesc("fsidet","Silica detritus sinking flux",'h','1','s','mol m-2 s-1','f')
     cobalt%id_fsidet = register_diag_field(package_name, vardesc_temp%name, axesTi(1:1),&
          init_time, vardesc_temp%longname,vardesc_temp%units, missing_value = missing_value1)
 
@@ -2007,10 +2033,10 @@ module COBALT_reg_diag
     cobalt%id_cased_redis_delz = register_diag_field(package_name, vardesc_temp%name, axes(1:2),&
          init_time, vardesc_temp%longname,vardesc_temp%units, missing_value = missing_value1)
 
-    vardesc_temp = vardesc("ffedet_btm","fedet sinking flux burial",'h','1','s','mol m-2 s-1','f')
+    vardesc_temp = vardesc("ffedet_btm","Iron detritus sinking flux burial",'h','1','s','mol m-2 s-1','f')
     cobalt%id_ffedet_btm = register_diag_field(package_name, vardesc_temp%name, axes(1:2),&
         init_time, vardesc_temp%longname,vardesc_temp%units, missing_value = missing_value1)
-
+		
     vardesc_temp = vardesc("ffedi_btm","diazo Fe sinking flux to bottom",'h','1','s','mol m-2 s-1','f')
     phyto(DIAZO)%id_ffe_btm = register_diag_field(package_name, vardesc_temp%name, axes(1:2),&
          init_time, vardesc_temp%longname,vardesc_temp%units, missing_value = missing_value1)
@@ -2047,10 +2073,14 @@ module COBALT_reg_diag
     cobalt%id_flithdet_btm = register_diag_field(package_name, vardesc_temp%name, axes(1:2),&
          init_time, vardesc_temp%longname,vardesc_temp%units, missing_value = missing_value1)
 
-    vardesc_temp = vardesc("fndet_btm","ndet sinking flux to bottom",'h','1','s','mol m-2 s-1','f')
+    vardesc_temp = vardesc("fndet_btm","Nitrogen detritus sinking flux to bottom",'h','1','s','mol m-2 s-1','f')
     cobalt%id_fndet_btm = register_diag_field(package_name, vardesc_temp%name, axes(1:2),&
          init_time, vardesc_temp%longname,vardesc_temp%units, missing_value = missing_value1)
 
+    vardesc_temp = vardesc("fndet_fast_btm","Fast-sinking nitrogen detritus flux to bottom",'h','1','s','mol m-2 s-1','f')
+    cobalt%id_fndet_fast_btm = register_diag_field(package_name, vardesc_temp%name, axes(1:2),&
+         init_time, vardesc_temp%longname,vardesc_temp%units, missing_value = missing_value1)
+		 
     vardesc_temp = vardesc("fndi_btm","diazo N sinking flux to bottom",'h','1','s','mol m-2 s-1','f')
     phyto(DIAZO)%id_fn_btm = register_diag_field(package_name, vardesc_temp%name, axes(1:2),&
          init_time, vardesc_temp%longname,vardesc_temp%units, missing_value = missing_value1)
@@ -2084,10 +2114,14 @@ module COBALT_reg_diag
     cobalt%id_fnoxic_sed = register_diag_field(package_name, vardesc_temp%name, axes(1:2),&
          init_time, vardesc_temp%longname,vardesc_temp%units, missing_value = missing_value1)
 
-    vardesc_temp = vardesc("fpdet_btm","pdet sinking flux to bottom",'h','1','s','mol m-2 s-1','f')
+    vardesc_temp = vardesc("fpdet_btm","Phosphorus detritus sinking flux to bottom",'h','1','s','mol m-2 s-1','f')
     cobalt%id_fpdet_btm = register_diag_field(package_name, vardesc_temp%name, axes(1:2),&
          init_time, vardesc_temp%longname,vardesc_temp%units, missing_value = missing_value1)
 
+    vardesc_temp = vardesc("fpdet_fast_btm","Fast-sinking phosphorus detritus flux to bottom",'h','1','s','mol m-2 s-1','f')
+    cobalt%id_fpdet_fast_btm = register_diag_field(package_name, vardesc_temp%name, axes(1:2),&
+         init_time, vardesc_temp%longname,vardesc_temp%units, missing_value = missing_value1)
+		 
     vardesc_temp = vardesc("fpdi_btm","diazo P sinking flux to bottom",'h','1','s','mol m-2 s-1','f')
     phyto(DIAZO)%id_fp_btm = register_diag_field(package_name, vardesc_temp%name, axes(1:2),&
          init_time, vardesc_temp%longname,vardesc_temp%units, missing_value = missing_value1)
@@ -2800,6 +2834,10 @@ module COBALT_reg_diag
     cobalt%id_jremin_ndet_100 = register_diag_field(package_name, vardesc_temp%name, axes(1:2),&
          init_time, vardesc_temp%longname,vardesc_temp%units, missing_value = missing_value1)
 
+    vardesc_temp = vardesc("jremin_ndet_fast_100","Remineralization of fast-sinking nitrogen detritus integral in upper 100m",'h','1','s','mol m-2 s-1','f')
+    cobalt%id_jremin_ndet_fast_100 = register_diag_field(package_name, vardesc_temp%name, axes(1:2),&
+         init_time, vardesc_temp%longname,vardesc_temp%units, missing_value = missing_value1)
+		 
     vardesc_temp = vardesc("jprod_mesozoo_200","Mesozooplankton Production, 200m integration",'h','1','s','mol m-2 s-1','f')
     cobalt%id_jprod_mesozoo_200 = register_diag_field(package_name, vardesc_temp%name, axes(1:2),&
          init_time, vardesc_temp%longname,vardesc_temp%units, missing_value = missing_value1)
@@ -2968,6 +3006,10 @@ module COBALT_reg_diag
     cobalt%id_f_ndet_100 = register_diag_field(package_name, vardesc_temp%name, axes(1:2),&
          init_time, vardesc_temp%longname,vardesc_temp%units, missing_value = missing_value1)
 
+    vardesc_temp = vardesc("ndet_fast_100","Fast-sinking nitrogen detritus biomass in upper 100m",'h','1','s','mol m-2','f')
+    cobalt%id_f_ndet_fast_100 = register_diag_field(package_name, vardesc_temp%name, axes(1:2),&
+         init_time, vardesc_temp%longname,vardesc_temp%units, missing_value = missing_value1)
+		 
     vardesc_temp = vardesc("don_100","Dissolved organic nitrogen (sr+sl+l) in upper 100m",'h','1','s','mol m-2','f')
     cobalt%id_f_don_100 = register_diag_field(package_name, vardesc_temp%name, axes(1:2),&
          init_time, vardesc_temp%longname,vardesc_temp%units, missing_value = missing_value1)
@@ -3028,14 +3070,22 @@ module COBALT_reg_diag
     cobalt%id_fndet_100 = register_diag_field(package_name, vardesc_temp%name, axes(1:2),&
          init_time, vardesc_temp%longname,vardesc_temp%units, missing_value = missing_value1)
 
+    vardesc_temp = vardesc("fndet_fast_100","Fast-sinking nitrogen detritus flux @ 100m",'h','1','s','mol m-2 s-1','f')
+    cobalt%id_fndet_fast_100 = register_diag_field(package_name, vardesc_temp%name, axes(1:2),&
+         init_time, vardesc_temp%longname,vardesc_temp%units, missing_value = missing_value1)
+		 
     vardesc_temp = vardesc("fpdet_100","Phosphorous detritus sinking flux @ 100m",'h','1','s','mol m-2 s-1','f')
     cobalt%id_fpdet_100 = register_diag_field(package_name, vardesc_temp%name, axes(1:2),&
          init_time, vardesc_temp%longname,vardesc_temp%units, missing_value = missing_value1)
 
+    vardesc_temp = vardesc("fpdet_fast_100","Fast-sinking phosphorous detritus flux @ 100m",'h','1','s','mol m-2 s-1','f')
+    cobalt%id_fpdet_fast_100 = register_diag_field(package_name, vardesc_temp%name, axes(1:2),&
+         init_time, vardesc_temp%longname,vardesc_temp%units, missing_value = missing_value1)
+		 
     vardesc_temp = vardesc("ffedet_100","Iron detritus sinking flux @ 100m",'h','1','s','mol m-2 s-1','f')
     cobalt%id_ffedet_100 = register_diag_field(package_name, vardesc_temp%name, axes(1:2),&
          init_time, vardesc_temp%longname,vardesc_temp%units, missing_value = missing_value1)
-
+		 
     vardesc_temp = vardesc("fsidet_100","Silicon detritus sinking flux @ 100m",'h','1','s','mol m-2 s-1','f')
     cobalt%id_fsidet_100 = register_diag_field(package_name, vardesc_temp%name, axes(1:2),&
          init_time, vardesc_temp%longname,vardesc_temp%units, missing_value = missing_value1)
