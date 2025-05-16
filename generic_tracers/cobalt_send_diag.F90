@@ -1771,6 +1771,7 @@ module COBALT_send_diag
           ! >>
           used = g_send_data(cobalt%id_jremin_ndet_fast_100, cobalt%jremin_ndet_fast_100, &
             model_time, rmask = grid_tmask(:,:,1), is_in=isc, js_in=jsc, ie_in=iec, je_in=jec)
+          ! >>
           !
           ! Water column flux integrals
           !
